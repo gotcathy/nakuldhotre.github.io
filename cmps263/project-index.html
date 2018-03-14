@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+
+<style>
+    .container {
+         padding-right:5px;
+         padding-left:5px;
+         margin-right:auto;
+         margin-left:auto;
+    }
+
+    #options_container, #description_container {
+        padding: 15px;
+        width:100%;
+    }
+
+</style>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"></script>
+
+<div class="container">
+<div align="center">
+  <h1 title="Gentrification">San Francisco Gentrification: Property Trends of 2014-2017</h1>
+</div>
+<div class="panel panel-default" id="description_container" style="border:1px solid #cecece;" >
+
+        Rising property prices are pushing out people from their homes. Gentrification, the process of renovating and improving a residential district typically old and poorer areas in response to the influx of more affluent residents, has been rapidly accelerating in urban neighborhoods, specifically in the San Francisco area in California. While gentrification improves the quality of life of these neighborhoods, it also adjusts pricing for both renting and owning homes, greatly affecting the affordability. We will explore the evidence of gentrification from 2014 to 2017, in relation to the average income, home sizes (number of rooms and price per sqft), rent, rent to price ratio, etc.
+        <br/><br/>
+        Assumptions: We have previously determined affordability to be the percentage of income that mortability requires. 
+        <br/><br/>
+        Analysis: 
+
+</div>
+
+<div id="main" style="width:100%">
+
+    <div class="panel panel-default" id="options_container" style="width:40%; float:right;">
+
+
+        <div id="ownership_dropdown">
+
+            <label>Ownership Options:</label>
+            <select class="dropdown" name="ownership_options" id="ownership_options" style="width:200px"> 
+                <option value="%">---------</option>
+                <option value="1">Median Listing Price</option>
+                <option value="2">Mortgage</option>
+                <option value="3">Affordability</option>        
+            </select>
+        </div>
+        <br/>
+        <div id="ownership_dropdown">
+            <label>Rental Options:</label>
+            <select class="dropdown" name="rental_options" id="rental_options" style="width:200px"> 
+                <option value="%">---------</option>
+                <option value="1">Rental Price</option>      
+            </select>
+        </div>
+        <br/>
+        <div id="room_radio">
+            <label>Rental Options:</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="radio_1" value="1">1 Bedroom
+            </label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="radio_2" value="2">2 Bedroom
+            </label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="radio_3" value="3">3 Bedroom
+            </label>
+        </div>
+    </div>
+
+    <div id="graphs" style="width:60%; float:left;">
+
+        <!-- Use 4 SVG's or use view port -->
+
+        <svg></svg>
+    </div>
+
+
+    <div id="sources">
+
+    </div>
+
+</div>
+
+</div>
+<script>
+
+$("#ownership_options").change(function(){
+    var ownership_option = $( "#ownership_options" ).val();
+    console.log("ownership_option", ownership_option);
+
+    if (ownership_option == 1){
+        /* Modify to show median listing price */
+    }
+    else if (ownership_option == 2){
+        /* Modify to show mortgage */
+    }
+    else if (ownership_option == 3){
+        /* Modify to show affordability */
+    }
+
+});
+
+$("#rental_options").change(function(){
+    var rental_option = $( "#rental_options" ).val();
+    console.log("rental_option", rental_option);
+
+    if (rental_option == 1){
+
+        /*Autoselect 1 bedroom */
+        $("#radio_1").prop("checked", true);
+
+
+        /* Modify to show rental price */
+
+    }
+});
+
+$("#room_radio").change(function(){
+    var room_radio = $("input[name='optradio']:checked").val();
+    console.log("room_radio", room_radio);
+
+
+    if (room_radio == 1){
+        /* Modify to show 1 bed */
+    }
+    else if (room_radio == 2){
+        /* Modify to show 2 bed */
+    }
+    else if (room_radio == 3){
+        /* Modify to show 3 bed */
+    }
+
+
+});
+
+</script>
